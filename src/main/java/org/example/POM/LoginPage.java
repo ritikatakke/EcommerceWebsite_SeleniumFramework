@@ -38,6 +38,9 @@ public class LoginPage extends BaseClass {
     @FindBy(css="div[data-ui-id=message-error]")
     WebElement errorMsg;
 
+    @FindBy(css="div  span.logged-in")
+    WebElement welcomeMsg;
+
 
 
 
@@ -48,6 +51,11 @@ public class LoginPage extends BaseClass {
     {
         driver.get(url);
 
+    }
+
+    public String checkWelcomeMsg(){
+     waitForWebElementToAppear(welcomeMsg);
+     return welcomeMsg.getText();
     }
 
     public void login(String email,String pass){

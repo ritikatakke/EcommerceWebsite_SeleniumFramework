@@ -28,6 +28,16 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    public void loginSucessfully(HashMap<String,String> input){
+        login.login("rtritika03@gmail.com","Riha@1234");
+        String Actual_Msg= login.checkWelcomeMsg();
+        String Expected_Msg ="Welcome, Ritu20 Takke!";
+        Assert.assertEquals(Actual_Msg,Expected_Msg);
+
+    }
+
+
+    @Test
     public void submitOrder() throws InterruptedException {
         login.login("rtritika04@gmail.com","Abcd@123");
        ProductList  productList = login.SearchProduct(SearchProduct);
@@ -39,7 +49,8 @@ public class LoginTest extends BaseTest {
         //confirmationPage.confirmationMsg();
         String actualOutput = confirmationPage.confirmationMsg();
         String expected = "We'll email you an order confirmation with details and tracking info.";
-        Assert.assertgit Equals(actualOutput,expected);
+
+        Assert.assertEquals(actualOutput,expected);
     }
 
     @DataProvider
