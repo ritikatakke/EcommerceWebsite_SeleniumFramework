@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
         //confirmationPage.confirmationMsg();
         String actualOutput = confirmationPage.confirmationMsg();
         String expected = "We'll email you an order confirmation with details and tracking info.";
-        Assert.assertEquals(actualOutput,expected);
+        Assert.assertgit Equals(actualOutput,expected);
     }
 
     @DataProvider
