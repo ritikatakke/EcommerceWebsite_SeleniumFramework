@@ -1,5 +1,6 @@
 package org.example.POM;
 
+import com.aventstack.extentreports.ExtentTest;
 import org.example.BaseClass.BaseClass;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BaseClass {
     WebDriver driver;
+
 
 
     public LoginPage(WebDriver driver) {
@@ -63,6 +65,7 @@ public class LoginPage extends BaseClass {
         signIn.click();
         username.sendKeys(email);
         password.sendKeys(pass);
+
         submit.click();
     }
 

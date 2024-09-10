@@ -13,6 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LoginTest extends BaseTest {
+
+    LoginTest(){
+        super();
+
+    }
     String SearchProduct ="shirt";
     String fit ="XS";
 
@@ -20,15 +25,61 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "getData")
     public void loginWithWrongCredentials(HashMap<String,String> input){
+        //extent.createTest("loginWithWrongCredentials");
         login.login(input.get("email"),input.get("password"));
+
+
         String Actual_Error= login.getLoginError();
         String Expected_Error ="The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
         Assert.assertEquals(Actual_Error,Expected_Error);
 
     }
 
+/*
+
+----------------DATA PROVIDE USING ARRAY----------------
+    @Test(dataProvider = "arrayDataProvider")
+    public void loginWithWrongCredentiaLArray(String email,String pass){
+        login.login(email,pass);
+        String Actual_Error= login.getLoginError();
+        String Expected_Error ="The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
+        Assert.assertEquals(Actual_Error,Expected_Error);
+
+    }
+
+    @DataProvider
+    public  Object[][] arrayDataProvider(){
+
+        return new Object[][]  {{"rtritika03@gmail.com","riha@125"},{"p@gmail.com","1234"}};
+
+    }
+*/
+
+   /* @DataProvider
+    public Object[][] dataHashMap(){
+        HashMap<Object,Object> map = new HashMap<Object,Object>();
+        map.put("email","r@gmail.com");
+        map.put("password","rttytay");
+
+        HashMap<Object,Object> map1 = new HashMap<Object,Object>();
+        map1.put("email","s@gmail.com");
+        map1.put("password","dhettytay");
+
+       return new Object[][] {{map},{map1}};
+    }
+
+    @Test(dataProvider = "dataHashMap")
+    public void loginWithWrongCredentialArray(HashMap<String,String> input){
+        login.login(input.get("email"),input.get("password"));
+        String Actual_Error= login.getLoginError();
+        String Expected_Error ="The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
+        Assert.assertEquals(Actual_Error,Expected_Error);
+
+    }
+*/
+
     @Test
-    public void loginSucessfully(HashMap<String,String> input){
+    public void loginSucessfully(){
         login.login("rtritika03@gmail.com","Riha@1234");
         String Actual_Msg= login.checkWelcomeMsg();
         String Expected_Msg ="Welcome, Ritu20 Takke!";
